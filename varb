@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VARB.TATTOO - Тату-студия на Парнасе</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1614;
+            color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #c92a2a;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #3a2e2a;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 90px;
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15%;
+            height: 20px;
+            background: #e0e0e0;
+        }
+        .hero::before { left: 0; }
+        .hero::after { right: 0; }
+
+        .about-text {
+            padding: 40px 0 60px;
+            font-size: 15px;
+            color: #b0b0b0;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 400;
+            color: #fff;
+            margin: 60px 0 30px;
+            padding-left: 20px;
+            border-left: 4px solid #c92a2a;
+            display: inline-block;
+        }
+
+        .section-title.right {
+            display: block;
+            text-align: right;
+            border-left: none;
+            border-right: 4px solid #c92a2a;
+            padding-right: 20px;
+            padding-left: 0;
+        }
+
+        .master-card {
+            display: flex;
+            gap: 40px;
+            background: #231f1d;
+            border: 1px solid #3a2e2a;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .master-photo {
+            flex: 0 0 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #c92a2a;
+        }
+
+        .master-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .master-info {
+            flex: 1;
+        }
+
+        .master-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .master-role {
+            color: #c92a2a;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background: #c92a2a;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .master-info p {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #c92a2a;
+            aspect-ratio: 1 / 1;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .price-section {
+            background: #2a2523;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 60px;
+        }
+
+        .price-section h3 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border: 1px solid #c92a2a;
+            border-radius: 30px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+
+        .price-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-item .price {
+            font-weight: 600;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .contact-box {
+            background: #1f1b19;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .contact-box h4 {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #c92a2a;
+            color: #fff;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #a31f1f;
+        }
+
+        .map-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #2a2523;
+            border: 1px solid #c92a2a;
+            border-radius: 30px;
+            padding: 20px;
+            color: #e0e0e0;
+            font-size: 14px;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        .map-link svg {
+            width: 24px;
+            height: 24px;
+            fill: #c92a2a;
+        }
+
+        footer {
+            border-top: 1px solid #3a2e2a;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 60px; }
+            .hero::before, .hero::after { width: 10%; height: 15px; }
+            .master-card { flex-direction: column; }
+            .master-photo { flex: 0 0 auto; width: 100%; max-width: 400px; margin: 0 auto; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .header-inner { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; font-size: 13px; }
+            .hero h1 { font-size: 40px; }
+            .hero::before, .hero::after { display: none; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .price-item { font-size: 14px; padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 5px; }
+            .price-item .price { font-size: 16px; }
+            .social-links { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">VARB.TATTOO</div>
+            <nav>
+                <ul>
+                    <li><a href="#masters">Мастера</a></li>
+                    <li><a href="#price">Прайс</a></li>
+                    <li><a href="#portfolio">Фото работ</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero container">
+        <h1>VARB.TATTOO</h1>
+    </section>
+
+    <section class="container about-text">
+        <p>Varb.Tattoo — пространство элитной татуировки на Парнасе (Санкт-Петербург). Полная стерильность, индивидуальный подход. Мы создаём татуировки, которые подчёркивают характер. Работаем по предварительной записи. Качество, безопасность, уникальность и комфорт - это всё про нас.</p>
+        <p>Коллаборации с другими мастерами, эксклюзивные эскизы, заживляющая плёнка— всё включено.</p>
+        <p>Кроме того, наша студия станет для вас отправной точкой в мир профессионального тату: мы с радостью раскроем секреты мастерства и обучим вас искусству создания вечных рисунков, а также всегда готовы предоставить просторную и светлую аренду для ваших творческих проектов.</p>
+    </section>
+
+    <section class="container" id="masters">
+        <h2 class="section-title">Мастера</h2>
+        
+        <div class="master-card">
+            <div class="master-photo">
+                <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=800&auto=format&fit=crop" alt="Дарья Варб">
+            </div>
+            <div class="master-info">
+                <h3>Дарья Варб</h3>
+                <div class="master-role">основатель студии | тату-мастер 9+ лет</div>
+                
+                <div class="tags">
+                    <span class="tag">Спбгутд</span>
+                    <span class="tag">Разные техники</span>
+                    <span class="tag">Цветная палитра</span>
+                    <span class="tag">Кастом-эскизы</span>
+                    <span class="tag">Качество</span>
+                    <span class="tag">Аккуратность тонких линий</span>
+                </div>
+
+                <p>Образование: Санкт-Петербургский университет промышленных технологий и дизайна, кафедра графического дизайна. Опыт: 9 лет (бьет тату с 2018г). Первое обучение в студии Блэк Нуар, в 2025 прошла обучение по программе купса "Портрет" Василисы Леверат. Скиллы: фотореализм, орнаментальная геометрия, эскизы с индивидуальной символикой. Работы публиковались в Instagram, VK, YouTube. Сертифицированный специалист, работа с гипоаллергенными пигментами, полная стерильность.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="portfolio">
+        <h2 class="section-title right">Портфолио</h2>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1560707303-4e980ce876ad?q=80&w=800&auto=format&fit=crop" alt="Работа 1">
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=800&auto=format&fit=crop" alt="Работа 2">
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1560707303-4e980ce876ad?q=80&w=800&auto=format&fit=crop" alt="Работа 3">
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="price">
+        <h2 class="section-title">Прайс</h2>
+        
+        <div class="price-section">
+            <h3>Стоимость</h3>
+            
+            <div class="price-item">
+                <span>Татуировка до 5 см</span>
+                <span class="price">5000 ₽</span>
+            </div>
+            <div class="price-item">
+                <span>Татуировка до 10 см</span>
+                <span class="price">10000 ₽</span>
+            </div>
+            <div class="price-item">
+                <span>Татуировка до 15 см</span>
+                <span class="price">15000 ₽</span>
+            </div>
+            <div class="price-item">
+                <span>Татуировка от 15 см</span>
+                <span class="price">20000 ₽</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="contacts">
+        <h2 class="section-title">Контакты и запись</h2>
+        
+        <div class="contact-box">
+            <h4>Запись на консультацию</h4>
+            <button class="btn">Запись</button>
+        </div>
+
+        <div class="map-link">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <span>Показать карту (Парнас)</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://t.me/varbtattoo" target="_blank">tg: @varbtattoo</a>
+                <a href="https://instagram.com/varb.tattoo" target="_blank">instagram: varb.tattoo</a>
+                <a href="tel:+79516552555">номер: +79516552555</a>
+                <a href="https://vk.com/bravdar" target="_blank">vk: bravdar</a>
+            </div>
+            <p>© 2026 VARB.TATTOO — тату-студия на Парнасе Брюлловская ул. 3, Санкт-Петербург</p>
+        </div>
+    </footer>
+
+</body>
+</html>
