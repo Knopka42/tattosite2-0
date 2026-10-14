@@ -16,6 +16,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
         body {
             background-color: #1a1614;
             color: #e0e0e0;
@@ -41,8 +46,15 @@
         }
 
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             padding: 20px 0;
+            background-color: rgba(26, 22, 20, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid #3a2e2a;
+            z-index: 1000;
         }
 
         .header-inner {
@@ -63,6 +75,16 @@
             display: flex;
             gap: 30px;
             font-size: 14px;
+        }
+
+        nav ul li a {
+            cursor: pointer;
+            padding: 5px 0;
+            display: inline-block;
+        }
+
+        .main-content {
+            padding-top: 100px;
         }
 
         .hero {
@@ -270,10 +292,12 @@
             transition: background 0.3s;
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
+            text-decoration: none;
         }
 
         .btn:hover {
             background: #a31f1f;
+            color: #fff;
         }
 
         .map-link {
@@ -289,6 +313,13 @@
             font-size: 14px;
             margin-bottom: 40px;
             cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+
+        .map-link:hover {
+            background: #3a2e2a;
+            color: #fff;
         }
 
         .map-link svg {
@@ -335,6 +366,7 @@
             .price-item { font-size: 14px; padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 5px; }
             .price-item .price { font-size: 16px; }
             .social-links { flex-direction: column; gap: 10px; }
+            .main-content { padding-top: 140px; }
         }
     </style>
 </head>
@@ -354,97 +386,101 @@
         </div>
     </header>
 
-    <section class="hero container">
-        <h1>VARB.TATTOO</h1>
-    </section>
+    <main class="main-content">
 
-    <section class="container about-text">
-        <p>Varb.Tattoo — пространство элитной татуировки на Парнасе (Санкт-Петербург). Полная стерильность, индивидуальный подход. Мы создаём татуировки, которые подчёркивают характер. Работаем по предварительной записи. Качество, безопасность, уникальность и комфорт - это всё про нас.</p>
-        <p>Коллаборации с другими мастерами, эксклюзивные эскизы, заживляющая плёнка— всё включено.</p>
-        <p>Кроме того, наша студия станет для вас отправной точкой в мир профессионального тату: мы с радостью раскроем секреты мастерства и обучим вас искусству создания вечных рисунков, а также всегда готовы предоставить просторную и светлую аренду для ваших творческих проектов.</p>
-    </section>
+        <section class="hero container">
+            <h1>VARB.TATTOO</h1>
+        </section>
 
-    <section class="container" id="masters">
-        <h2 class="section-title">Мастера</h2>
-        
-        <div class="master-card">
-            <div class="master-photo">
-                <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=800&auto=format&fit=crop" alt="Дарья Варб">
-            </div>
-            <div class="master-info">
-                <h3>Дарья Варб</h3>
-                <div class="master-role">основатель студии | тату-мастер 9+ лет</div>
-                
-                <div class="tags">
-                    <span class="tag">Спбгутд</span>
-                    <span class="tag">Разные техники</span>
-                    <span class="tag">Цветная палитра</span>
-                    <span class="tag">Кастом-эскизы</span>
-                    <span class="tag">Качество</span>
-                    <span class="tag">Аккуратность тонких линий</span>
-                </div>
+        <section class="container about-text">
+            <p>Varb.Tattoo — пространство элитной татуировки на Парнасе (Санкт-Петербург). Полная стерильность, индивидуальный подход. Мы создаём татуировки, которые подчёркивают характер. Работаем по предварительной записи. Качество, безопасность, уникальность и комфорт - это всё про нас.</p>
+            <p>Коллаборации с другими мастерами, эксклюзивные эскизы, заживляющая плёнка— всё включено.</p>
+            <p>Кроме того, наша студия станет для вас отправной точкой в мир профессионального тату: мы с радостью раскроем секреты мастерства и обучим вас искусству создания вечных рисунков, а также всегда готовы предоставить просторную и светлую аренду для ваших творческих проектов.</p>
+        </section>
 
-                <p>Образование: Санкт-Петербургский университет промышленных технологий и дизайна, кафедра графического дизайна. Опыт: 9 лет (бьет тату с 2018г). Первое обучение в студии Блэк Нуар, в 2025 прошла обучение по программе купса "Портрет" Василисы Леверат. Скиллы: фотореализм, орнаментальная геометрия, эскизы с индивидуальной символикой. Работы публиковались в Instagram, VK, YouTube. Сертифицированный специалист, работа с гипоаллергенными пигментами, полная стерильность.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container" id="portfolio">
-        <h2 class="section-title right">Портфолио</h2>
-        
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1560707303-4e980ce876ad?q=80&w=800&auto=format&fit=crop" alt="Работа 1">
-            </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=800&auto=format&fit=crop" alt="Работа 2">
-            </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1560707303-4e980ce876ad?q=80&w=800&auto=format&fit=crop" alt="Работа 3">
-            </div>
-        </div>
-    </section>
-
-    <section class="container" id="price">
-        <h2 class="section-title">Прайс</h2>
-        
-        <div class="price-section">
-            <h3>Стоимость</h3>
+        <section class="container" id="masters">
+            <h2 class="section-title">Мастера</h2>
             
-            <div class="price-item">
-                <span>Татуировка до 5 см</span>
-                <span class="price">5000 ₽</span>
-            </div>
-            <div class="price-item">
-                <span>Татуировка до 10 см</span>
-                <span class="price">10000 ₽</span>
-            </div>
-            <div class="price-item">
-                <span>Татуировка до 15 см</span>
-                <span class="price">15000 ₽</span>
-            </div>
-            <div class="price-item">
-                <span>Татуировка от 15 см</span>
-                <span class="price">20000 ₽</span>
-            </div>
-        </div>
-    </section>
+            <div class="master-card">
+                <div class="master-photo">
+                    <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=800&auto=format&fit=crop" alt="Дарья Варб">
+                </div>
+                <div class="master-info">
+                    <h3>Дарья Варб</h3>
+                    <div class="master-role">основатель студии | тату-мастер 9+ лет</div>
+                    
+                    <div class="tags">
+                        <span class="tag">Спбгутд</span>
+                        <span class="tag">Разные техники</span>
+                        <span class="tag">Цветная палитра</span>
+                        <span class="tag">Кастом-эскизы</span>
+                        <span class="tag">Качество</span>
+                        <span class="tag">Аккуратность тонких линий</span>
+                    </div>
 
-    <section class="container" id="contacts">
-        <h2 class="section-title">Контакты и запись</h2>
-        
-        <div class="contact-box">
-            <h4>Запись на консультацию</h4>
-            <button class="btn">Запись</button>
-        </div>
+                    <p>Образование: Санкт-Петербургский университет промышленных технологий и дизайна, кафедра графического дизайна. Опыт: 9 лет (бьет тату с 2018г). Первое обучение в студии Блэк Нуар, в 2025 прошла обучение по программе купса "Портрет" Василисы Леверат. Скиллы: фотореализм, орнаментальная геометрия, эскизы с индивидуальной символикой. Работы публиковались в Instagram, VK, YouTube. Сертифицированный специалист, работа с гипоаллергенными пигментами, полная стерильность.</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="map-link">
-            <svg viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <span>Показать карту (Парнас)</span>
-        </div>
-    </section>
+        <section class="container" id="portfolio">
+            <h2 class="section-title right">Портфолио</h2>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1560707303-4e980ce876ad?q=80&w=800&auto=format&fit=crop" alt="Работа 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=800&auto=format&fit=crop" alt="Работа 2">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1560707303-4e980ce876ad?q=80&w=800&auto=format&fit=crop" alt="Работа 3">
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="price">
+            <h2 class="section-title">Прайс</h2>
+            
+            <div class="price-section">
+                <h3>Стоимость</h3>
+                
+                <div class="price-item">
+                    <span>Татуировка до 5 см</span>
+                    <span class="price">5000 ₽</span>
+                </div>
+                <div class="price-item">
+                    <span>Татуировка до 10 см</span>
+                    <span class="price">10000 ₽</span>
+                </div>
+                <div class="price-item">
+                    <span>Татуировка до 15 см</span>
+                    <span class="price">15000 ₽</span>
+                </div>
+                <div class="price-item">
+                    <span>Татуировка от 15 см</span>
+                    <span class="price">20000 ₽</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="contacts">
+            <h2 class="section-title">Контакты и запись</h2>
+            
+            <div class="contact-box">
+                <h4>Запись на консультацию</h4>
+                <a href="https://dikidi.net/1132905?p=0.pi" target="_blank" class="btn">Запись</a>
+            </div>
+
+            <a href="https://yandex.ru/maps/org/tatu_studiya_varb_tattoo/42848843184/?ll=30.311825%2C60.069068&z=16" target="_blank" class="map-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Показать карту (Парнас)</span>
+            </a>
+        </section>
+
+    </main>
 
     <footer>
         <div class="container">
